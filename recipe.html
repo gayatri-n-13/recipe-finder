@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="recipe-container">
+        <div class="recipe-details">
+            <h1 id="recipe-title"></h1>
+            <p id="recipe-desc"></p>
+            <h3>Ingredients:</h3>
+            <ul id="ingredients"></ul>
+            <h3>Instructions:</h3>
+            <p id="instructions"></p>
+        </div>
+
+        <div class="recipe-image">
+            <img id="recipe-img" src="" alt="Recipe Image">
+        </div>
+    </div>
+
+    <button onclick="goBack()">Go Back</button>
+
+    <script>
+        const recipes = {
+            "Pasta": {
+                title: "Creamy Garlic Pasta",
+                desc: "A quick and creamy garlic-infused pasta dish.",
+                ingredients: ["Pasta", "Garlic", "Cream", "Cheese"],
+                instructions: "Boil pasta. Sauté garlic in butter. Add cream and cheese. Mix and serve.",
+                image: "tandoori-pasta-1 copy.jpg"
+            },
+            "Chicken Curry": {
+                title: "Spicy Chicken Curry",
+                desc: "A rich and flavorful Indian-style chicken curry.",
+                ingredients: ["Chicken", "Tomatoes", "Onion", "Spices"],
+                instructions: "Cook onions and tomatoes. Add chicken and spices. Simmer until tender.",
+                image: "Instant-Pot-Chicken-Curry-Recipe copy.jpg"
+            },
+            "Egg Fried Rice": {
+                title: "Egg Fried Rice",
+        desc: "A quick and easy egg fried rice dish.",
+        ingredients: [
+            "2 cups Cooked Rice", 
+            "2 Eggs", 
+            "1/2 cup Mixed Vegetables", 
+            "2 tbsp Soy Sauce", 
+            "1 clove Garlic (chopped)", 
+            "1 tbsp Oil"],
+            instructions: "Heat oil in a pan. Scramble eggs and set aside. Stir-fry garlic and vegetables. Add rice, eggs, and soy sauce. Stir well and serve.",
+        image: "Egg-fried-rice-2__ScaleWidthWzEyMDBd copy.jpg"
+            },
+            "Fish fry": {
+                title: "Fish Fry",
+        desc: "A quick and easy fish dish.",
+        ingredients: [
+        "2 Fish Fillets", 
+            "1/2 cup Flour", 
+            "1/2 tsp Turmeric", 
+            "1/2 tsp Chili Powder", 
+            "Salt to taste", 
+            "Oil for frying"],
+           instructions: "Coat fish with flour and spices. Heat oil in a pan and fry fish until crispy. Drain excess oil and serve hot.",
+        image: "Untitled-1-1 copy.jpg"
+            },
+            "Paneer Tikka": {
+                title: "Paneer Tikka",
+        desc: "A delicious grilled paneer dish with spices.",
+        ingredients: [
+        "200g Paneer (cubed)", 
+            "1/2 cup Yogurt", 
+            "1 tbsp Lemon Juice", 
+            "1 tsp Chili Powder", 
+            "1 tsp Cumin Powder", 
+            "1 tbsp Ginger-Garlic Paste", 
+            "Salt to taste"],
+            instructions: "Mix all ingredients and marinate for 1 hour. Skewer paneer pieces and grill until golden brown. Serve with chutney.",
+        image: "Paneer-tikka-2 copy.jpg"
+
+            },
+        };
+
+
+        function loadRecipe() {
+            const params = new URLSearchParams(window.location.search);
+            const recipeName = params.get("name");
+
+            if (recipes[recipeName]) {
+                document.getElementById("recipe-title").textContent = recipes[recipeName].title;
+                document.getElementById("recipe-desc").textContent = recipes[recipeName].desc;
+                document.getElementById("ingredients").innerHTML = recipes[recipeName].ingredients.map(i => `<li>${i}</li>`).join("");
+                document.getElementById("instructions").textContent = recipes[recipeName].instructions;
+                document.getElementById("recipe-img").src = recipes[recipeName].image;
+            }
+        }
+
+        function goBack() {
+            window.location.href = "home.html";
+        }
+
+        window.onload = loadRecipe;
+    </script>
+
+</body>
+</html>
