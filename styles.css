@@ -1,7 +1,7 @@
 body {
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
-    background-color: #f8f8f8;
+    background-color: #f7f2c2;
     margin: 20px;
 }
 
@@ -9,16 +9,20 @@ body {
     max-width: 600px;
     margin: auto;
     padding: 20px;
-   background: rgb(241, 230, 203);
+    background: rgb(247, 226, 165);
     box-shadow: 0px 0px 10px #ccc;
     border-radius: 10px;
 }
 
 button {
-    padding: 10px;
+    
     font-size: 16px;
     cursor: pointer;
     margin-top: 10px;
+    color: rgb(97, 68, 25);
+    font-family: 'Times New Roman', Times, serif
+    
+    
 }
 
 .recipe-container {
